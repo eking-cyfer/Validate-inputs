@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        label {
+            font-weight: bold;
+        }
+        input {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Login Form</h2>
+    <form name="myForm" onsubmit="return validateForm()">
+        Name: <input type="text" name="name"><br>
+        Age: <input type="number" name="age"><br>
+        <input type="submit" value="Login">
+    </form>
+
+    <script>
+        function validateForm() {
+            var name = document.forms["myForm"]["name"].value;
+            var age = document.forms["myForm"]["age"].value;
+            if (name == "") {
+                alert("Name cannot be empty");
+                return false;
+            }
+            if (age == "" || age < 18) {
+                alert("Age must be greater than or equal to 18");
+                return false;
+            }
+            alert("Successfully logged in");
+            return true;
+        }
+    </script>
+
+</body>
+</html>
